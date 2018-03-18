@@ -1,10 +1,8 @@
 .login{
     text-align: center;
     font-family: helvetica;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 17em;
 }
 .inputstyle {
     width: 30em;
