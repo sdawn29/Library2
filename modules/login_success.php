@@ -74,6 +74,7 @@
         </div> <!-- searchbox -->
 <?php
     if (isset($_POST['submit'])) {
+        if(!empty($_POST['q'])) {
 ?>
         <table>
             <h3>Book Details</h3>
@@ -95,6 +96,9 @@
                 <td><?php echo $book['publisher'] ?></td>
             </tr>
 <?php
+        }
+        }else {
+            echo "Enter a Search Term";
         }
 ?>
         </table>
