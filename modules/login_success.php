@@ -1,9 +1,9 @@
 <?php
+    session_start();
     $server = 'localhost';
     $username = 'root';
     $password = '';
     $dbname = 'db_srm_lib';
-    $msg = "Registration Succesful Login to continue";
     
     $conn = mysqli_connect($server, $username, $password, $dbname);
 
@@ -48,17 +48,20 @@
     <meta charset="utf-8" />
     <title>Welcome User</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/welcome.css" />
+    <link rel="stylesheet" href="../styles/searchStyle.css" />
 </head>
 <body>
     <div class="header">
-        <h2>Online Library Management System</h2>
+        <div class="container">
+            <ul>
+                <li style = "float:left"><h3>Online Library Management System</h3></li>
+                <li style = "float:right"><?php echo $_SESSION['username'] ?></li>
+            </ul>
+        </div>
     </div>
     <div class="container">
-        <div class="heading">
-            <h2>Search</h2>
-            <p>for any books</p>
-        </div>
+        <h2>Search</h2>
+        <p>for any books</p>
         <div class="searchbox">
             <form action="#" method="POST">
                 <input type="radio" name="searchtype" value="bookId" checked>By Book ID
@@ -73,10 +76,13 @@
     if (isset($_POST['submit'])) {
 ?>
         <table>
+            <h3>Book Details</h3>
             <tr>
-                <th>bookid</th>
-                <th>book name</th>
-                <th>book author</th>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Book Author</th>
+                <th>Price in Rs.</th>
+                <th>Publisher</th>
             </tr>
 <?php
         foreach ($result as $book) {
@@ -85,13 +91,15 @@
                 <td><?php echo $book['book_id'] ?></td>
                 <td><?php echo $book['book_title'] ?></td>
                 <td><?php echo $book['author1'] ?></td>
+                <td><?php echo $book['price'] ?></td>
+                <td><?php echo $book['publisher'] ?></td>
             </tr>
 <?php
-        } // for book in $result
+        }
 ?>
         </table>
 <?php
-    } // if isset($_POST['submit'])
+    } 
 ?>
     </div>
 </body>
