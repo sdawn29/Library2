@@ -39,32 +39,35 @@ a {
 }
 
 .navmenu a {
-    color: #3F51B5; 
+    color: black; 
 }
 
 .navmenu a:hover {
-    background-color: #E0E0E0
+    background-color: #BDBDBD;
 }
 
 
 .active {
-    background-color: whitesmoke;
+    background-color: #BDBDBD;
 }
 
 .container{
     width: 991px;
     margin:10px auto;
+    background-color: #9E9E9E;
 }
 
 .navmenu {
     width: 180px;
     float:left;
     border: 0.75px solid black;
+    /* background-color: #EEEEEE; */
     border-radius: 5px;
 }
 
 .navmenu li {
     padding: 14px 5px;
+    width:100%;
 }
 
 .content{
@@ -72,6 +75,7 @@ a {
     width:780px;
     float: right;
     border: 0.75px solid black;
+    /* background-color: #F5F5F5; */
     border-radius: 5px;
     padding: 10px 10px;
 }
@@ -86,26 +90,67 @@ a {
     display: block;
     float: left;
     border: 0.75px solid black;
+    /* background-color: #F5F5F5; */
     padding: 10px 10px;
     border-radius: 5px;
 }
 
 input[type=submit] {
     width: 90px;
-    background-color: transparent;
+    background-color: white;
     border: 0.75px solid rgba(16, 116, 231, 0.945);
     border-radius: 3px;
     padding: 3px; 
-    transition-duration: 0.4s
 }
 input[type=submit]:hover { 
     background-color: rgba(16, 116, 231, 0.945);
     color: white;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 input {
     padding: 3px;
     border: 0.5px solid black;
     border-radius: 5px;
     margin: 5px 10px;
+}
+
+.deletebook {
+    display: block;
+    float: right;
+    width: 570px;
+    border: 0.75px solid black;
+    /* background-color: #F5F5F5; */
+    padding: 10px 10px;
+    border-radius: 5px;
+
+}
+
+.issuebook {
+    display: block;
+    margin-top: 10px;
+    float: right;
+    width: 570px;
+    border: 0.75px solid black;
+    /* background-color: #F5F5F5; */
+    padding: 12.5px 10px;
+    border-radius: 5px;
+
+}
+.bookstable {
+    width:100%;
+    background-color: #E0E0E0;
+    border-radius: 5px;
+    padding: 5px auto;
+}
+
+.bookstable th {
+    background-color: #616161;
+    color: white;
+    border-radius:5px;
+    padding:2px auto;
+}
+.bookstable td, .bookstable th{
+    text-align: center;
+    
 }

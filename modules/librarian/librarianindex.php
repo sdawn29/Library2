@@ -16,6 +16,7 @@
             <div class="navbar">
                 <ul>
                     <li style="float:left; font-weight:600;" class="brand" ><a href="#">Online Library Management System Librarian Portal</a></li>
+                    <li style="float:right;" class="brand"><a href="logout.php" class="session" style="color:#f44336">Sign Out</a></li>
                     <li style="float:right;" class="brand"><a href="librarian.html" class="session" style="color:#B2FF59"><?php echo $_SESSION['username'] ?></a></li>
                 </ul>
             </div>
