@@ -15,8 +15,8 @@
         $searchType = $_POST['searchtype'];
         $searchQuery = $_POST['q'];
 
-        $q1 = "select * from book_master where book_id = ?";
-        $q2 = "select * from book_master where lower({{type}}) like '%{{query}}%'";
+        $q1 = "select * from bookmaster where book_id = ?";
+        $q2 = "select * from bookmaster where lower({{type}}) like '%{{query}}%'";
 
         if ($searchType == 'bookId') {
             $sql = $q1;

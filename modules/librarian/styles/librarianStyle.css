@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.header{
+    background-color: #333;
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+}
+.containerHeader {
+    width: 991px;
+    margin: 0 auto;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    border: 0.5px solid white;
+}
+
+li {
+    display: block;
+}
+
+a {
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 5px 12px;
+}
+
+.navmenu a {
+    color: #3F51B5; 
+}
+
+.navmenu a:hover {
+    background-color: #E0E0E0
+}
+
+
+.active {
+    background-color: whitesmoke;
+}
+
+.container{
+    width: 991px;
+    margin:10px auto;
+}
+
+.navmenu {
+    width: 180px;
+    float:left;
+    border: 0.75px solid black;
+    border-radius: 5px;
+}
+
+.navmenu li {
+    padding: 14px 5px;
+}
+
+.content{
+    display: block;
+    width:780px;
+    float: right;
+    border: 0.75px solid black;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+.content2{
+    display: block;
+    width:802px;
+    float: right;
+    margin-top: 10px;
+}
+
+.addbook{
+    display: block;
+    float: left;
+    border: 0.75px solid black;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    width: 90px;
+    background-color: transparent;
+    border: 0.75px solid rgba(16, 116, 231, 0.945);
+    border-radius: 3px;
+    padding: 3px; 
+    transition-duration: 0.4s
+}
+input[type=submit]:hover { 
+    background-color: rgba(16, 116, 231, 0.945);
+    color: white;
+    cursor: pointer;
+}
+input {
+    padding: 3px;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    margin: 5px 10px;
+}

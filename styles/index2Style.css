@@ -1,3 +1,5 @@
+
+
 *{
     margin: 0;
     padding: 0;
@@ -10,9 +12,9 @@ a {
     background-color: #333;
     width: 100%;
     overflow: hidden;
-    font-size: 18spx;
+    font-size: 14px;
 }
-.container {
+.containerHeader {
     width: 991px;
     margin: 0 auto;
 }
@@ -25,18 +27,32 @@ ul{
     text-decoration: none;
     color: white;
     display: block;
-    padding: 14px 5px;
 }
 
 li {
     display: block;
 }
 
+.container {
+    width: 991px;
+    margin: 0 auto;
+    padding-top: 25px;
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding-bottom: 50px;
+}
 .container h3 {
     text-align: center;
     font-size: 50px;
-    padding-top: 25px;
+    
 }
+
+.container h2 {
+    text-align: center;
+    color: royalblue;
+}
+
 .posbutton {
     text-align: center;
     padding: 10px;
@@ -58,4 +74,30 @@ li {
     cursor: pointer;
     background-color:  rgba(16, 116, 231, 0.945);
     color: white;
+}
+
+a {
+    border: 0.5px solid white;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 5px 12px;
+}
+
+.header a:hover {
+    background-color: whitesmoke;
+    color: #333;
+}
+
+.active {
+    background-color: whitesmoke;
+}
+
+.containerLib {
+    width: 991px;
+    margin: 0 auto;
+    padding-top: 25px;
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding-bottom: 50px;
 }

@@ -1,0 +1,44 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login {
+    width:400px;
+    border: 1px solid black;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px auto;
+}
+
+.inputstyle {
+    width: 150px;
+    height: 20px;
+    border: 0;
+    border-bottom: 0.75px solid black;
+    outline: none;
+    margin: 20px auto; 
+    text-align: center;
+    transition-duration: 0.4s;
+}
+input[type=text]:focus, [type=password]:focus {
+    width:300px;
+}
+input:focus::placeholder{
+    color: transparent;
+}
+input[type=submit] {
+    background-color: transparent;
+    border: 0.75px solid green;
+    width: 90px;
+    height: 30px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+    margin-bottom: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
