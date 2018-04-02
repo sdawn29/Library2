@@ -26,9 +26,9 @@
         <div class="navmenu">
             <ul>
                 
-                <li><a href="librarianindex.php">Home</a></li>
+                <li><a href="librarianindex.php" class="active">Home</a></li>
                 <li><a href="libbooks.php">Books</a></li>
-                <li><a href="#">Staff And Students</a></li>
+                <li><a href="libstudent.php">Staff And Students</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="#">Change Password</a></li
             </ul>
