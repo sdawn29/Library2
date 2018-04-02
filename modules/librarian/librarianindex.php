@@ -1,5 +1,9 @@
 <?php 
-    session_start()
+    session_start();
+    if( !isset($_SESSION['username']) ){
+        header("Location: https://localhost/library2/modules/liblogin.php", true, 301);
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>

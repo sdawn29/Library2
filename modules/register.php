@@ -13,7 +13,7 @@
     if(!$conn) {
         die("Connection failed: ".mysqli_connect_error());
     }
-
+    
     
     
     $sql = "INSERT INTO user_master (User_ID, User_name, User_Desc, User_PWD, User_Type, Gender, Dept, Mail_ID, Phone, Library_name) VALUES('$reg','$user', '$desg', '$pass', '$type', '$gender', '$dept', '$email', '$phone', '$libname')";

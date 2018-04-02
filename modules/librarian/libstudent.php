@@ -9,6 +9,7 @@
     $password = '';
     $dbname = 'db_srm_lib';
     
+    $aduser_result = FALSE;
     extract($_POST);
     
     $conn = mysqli_connect($server, $username, $password, $dbname);
@@ -17,16 +18,10 @@
         die("Connection failed: ".mysqli_connect_error());
     }
 
-    if (isset($_POST['addBooks'])){
-        $sql = "INSERT INTO bookmaster (book_title, edition, author1, price, publisher, book_type) VALUES('$booktitle', '$edition', '$author', '$price', '$publisher', '$booktype')";
-        if(mysqli_query($conn,$sql)) {
-            header("Location: http://localhost/library2/modules/librarian/libbooks.php", true, 301);
-            exit();
-        }
-        else {
-            echo "Error".$sql."<br>".mysqli_error($conn);
-        }
-        mysqli_close($conn);
+    if (isset($_POST['adduser'])){
+        $sql = "INSERT INTO user_master (User_ID, User_name, User_Desc, User_PWD, User_Type, Gender, Dept, Mail_ID, Phone, Library_name) VALUES('$reg','$user', '$desg', '$pass', '$type', '$gender', '$dept', '$email', '$phone', '$libname')";
+
+        $aduser_result = mysqli_query($conn,$sql);
     }
 
     if (isset($_POST['deletebook'])){
@@ -44,8 +39,8 @@
         // mysqli_query($conn,$sql);
     }
 
-    if (isset($_POST['viewbooks'])) {
-        $sql = "SELECT * FROM bookmaster";
+    if (isset($_POST['viewuser'])) {
+        $sql = "SELECT * FROM user_master";
         $res = mysqli_query($conn,$sql);
         $result = $res->fetch_all(MYSQLI_ASSOC);
         mysqli_close($conn);
@@ -80,7 +75,7 @@
                 <li><a href="libbooks.php">Books</a></li>
                 <li><a href="libstudent.php" class="active">Staff And Students</a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="#">Change Password</a></li
+                <li><a href="#">Change Password</a></li>
             </ul>
         </div>
         <div class="content">
@@ -90,7 +85,7 @@
         <div class="content2">
             <div class="addbook">
                 <h2 style="margin:0 8px;">Add Students</h2>
-                <form action="libbooks.php" method="post">
+                <form action="libstudent.php" method="post">
                     <input class="inputstyle" type="text" name="reg" placeholder="Enter Register No."><br>
                     <input class="inputstyle" type="text" name="user" placeholder="Enter Username"><br>
                     <input class="inputstyle" type="password" name="pass" placeholder="Enter Password"><br>
@@ -106,21 +101,30 @@
                     <input class="inputstyle" type="email" name="email" placeholder="Enter email"><br>
                     <input class="inputstyle" type="text" name="phone" placeholder="Enter Phone no."><br>
                     <input class="inputstyle" type="text" name="libname" placeholder="Enter Library name"><br>
-                    <input type="submit" value="Add User" name="adduser">
+                    <input type="submit" value="Add User" name="adduser"><br>
+                    <?php
+                        if (isset($_POST['adduser'])) {
+                           if($aduser_result) {
+                               echo '1 User Added';
+                           } else {
+                               echo 'Error Adding User';
+                           }
+                        }
+                    ?>
                 </form>
             </div>
             <div class="deletebook">
                 <h2 style="margin:0 8px">Remove a Student</h2>
-                <form action="libbooks.php" method="post">
+                <form action="libstudent.php" method="post">
                     <input type="text" name="userid" style="width:200px;" placeholder="Enter Registration No." autocomplete="off"><br>
                     <input type="submit" value="Remove user" class="delbutton" name="removeuser">
                     <?php
-                        if (isset($_POST['deletebook'])){ 
+                        if (isset($_POST['removeuser'])){ 
                             if($stmt->affected_rows > 0){
-                                echo '1 Book Deleted';
+                                echo '1 User Removed';
                             }
                             else {
-                                echo 'Error Deleting Book';
+                                echo 'Error Removing User';
                             }
                         }
                     ?>
@@ -129,33 +133,31 @@
             
             <div class="content" style="margin-top:10px;">
                 <h2 style="text-align:center;">View Student Database</h2>
-                <form action="libbooks.php" style="text-align:center;" method="post">
-                    <input type="submit" name="viewusers" value="View Users">
+                <form action="libstudent.php" style="text-align:center;" method="post">
+                    <input type="submit" name="viewuser" value="View Users">
                 </form>
                 <?php
-                    if (isset($_POST['viewstudents'])) {
+                    if (isset($_POST['viewuser'])) {
                 ?>
                 <table class="bookstable">
                     <tr>
-                        <th>Book ID</th>
-                        <th>Edition</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Publisher</th>
-                        <th>Price</th>
-                        <th>Book Type</th>
+                        <th>Registration no.</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Mail ID</th>
+                        <th>Phone</th>
                     </tr>
                 <?php
-                    foreach ($result as $book) {
+                    foreach ($result as $user) {
                 ?>
                     <tr>
-                        <td><?= $book['book_id'] ?></td>
-                        <td><?= $book['edition'] ?></td>
-                        <td><?= $book['book_title'] ?></td>
-                        <td><?= $book['author1'] ?></td>
-                        <td><?= $book['publisher'] ?></td>
-                        <td><?= $book['price'] ?></td>
-                        <td><?= $book['book_type'] ?></td>
+                        <td><?= $user['User_ID'] ?></td>
+                        <td><?= $user['User_name'] ?></td>
+                        <td><?= $user['Gender'] ?></td>
+                        <td><?= $user['Dept'] ?></td>
+                        <td><?= $user['Mail_ID'] ?></td>
+                        <td><?= $user['Phone'] ?></td>
                     </tr>
                 <?php
                     }
