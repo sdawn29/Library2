@@ -77,6 +77,7 @@
 
                     echo "<p style='color:red;margin: 0;'>$passwordErr</p>";
                 ?><br>
+                
                 <input type="submit" value="Login" class="loginstyle"><br>
                 <?php
                   echo "<p style='color:red;'>$loginError</p>";

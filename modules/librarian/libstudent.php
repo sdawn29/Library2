@@ -88,21 +88,21 @@
             <div class="addbook">
                 <h2 style="margin:0 8px;">Add Students</h2>
                 <form action="libstudent.php" method="post">
-                    <input class="inputstyle" type="text" name="reg" placeholder="Enter Register No."><br>
-                    <input class="inputstyle" type="text" name="user" placeholder="Enter Username"><br>
-                    <input class="inputstyle" type="password" name="pass" placeholder="Enter Password"><br>
-                    <input class="inputstyle" type="text" name="desg" placeholder="Enter Designation"><br>
-                    <input class="inputstyle" type="text" name="type" placeholder="Enter User type"><br>
+                    <input class="inputstyle" type="text" name="reg" placeholder="Enter Register No." required><br>
+                    <input class="inputstyle" type="text" name="user" placeholder="Enter Username" required><br>
+                    <input class="inputstyle" type="password" name="pass" placeholder="Enter Password" required><br>
+                    <input class="inputstyle" type="text" name="desg" placeholder="Enter Designation" required><br>
+                    <input class="inputstyle" type="text" name="type" placeholder="Enter User type" required><br>
                     
                     <label for="Gender" style="margin:0 8px;">Gender</label><br>
                     <input class="radiostyle" type="radio" name="gender" value="Male">
                     <label>Male</label>
                     <input class="radiostyle" type="radio" name="gender" value="female">
                     <label>Female</label><br>
-                    <input class="inputstyle" type="text" name="dept" placeholder="Enter Department"><br>
-                    <input class="inputstyle" type="email" name="email" placeholder="Enter email"><br>
-                    <input class="inputstyle" type="text" name="phone" placeholder="Enter Phone no."><br>
-                    <input class="inputstyle" type="text" name="libname" placeholder="Enter Library name"><br>
+                    <input class="inputstyle" type="text" name="dept" placeholder="Enter Department" required><br>
+                    <input class="inputstyle" type="email" name="email" placeholder="Enter email" required><br>
+                    <input class="inputstyle" type="text" name="phone" placeholder="Enter Phone no." required><br>
+                    <input class="inputstyle" type="text" name="libname" placeholder="Enter Library name" required><br>
                     <input type="submit" value="Add User" name="adduser"><br>
                     <?php
                         if (isset($_POST['adduser'])) {
@@ -118,8 +118,8 @@
             <div class="deletebook">
                 <h2 style="margin:0 8px">Remove a Student</h2>
                 <form action="libstudent.php" method="post">
-                    <input type="text" name="userid" style="width:200px;" placeholder="Enter Registration No." autocomplete="off"><br>
-                    <input type="submit" value="Remove user" class="delbutton" name="removeuser">
+                    <input type="text" name="userid" style="width:200px;" placeholder="Enter Registration No." autocomplete="off" required><br>
+                    <input type="submit" value="Remove user" class="delbutton" name="removeuser" required>
                     <?php
                         if (isset($_POST['removeuser'])){ 
                             if($stmt->affected_rows > 0){
@@ -137,7 +137,7 @@
             <div class="issuebook">
                 <h2 style="margin:0 8px">View About a Student</h2>
                 <form action="libstudent.php" method="post">
-                    <input type="text" name="userid" style="width:200px;" placeholder="Enter Registration Number"><br>
+                    <input type="text" name="userid" style="width:200px;" placeholder="Enter Registration Number" required><br>
                     <input type="submit" value="View" name="viewuserdet">
                 </form>
                 <?php

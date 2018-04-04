@@ -103,7 +103,7 @@
             <div class="deletebook">
                 <h2 style="margin:0 8px">Delete A Book</h2>
                 <form action="libbooks.php" method="post">
-                    <input type="text" name="bookid" style="width:200px;" placeholder="Enter Book ID" autocomplete="off"><br>
+                    <input type="text" name="bookid" style="width:200px;" placeholder="Enter Book ID" autocomplete="off" required><br>
                     <input type="submit" value="Delete" class="delbutton" name="deletebook">
                     <?php
                         if (isset($_POST['deletebook'])){ 
@@ -120,8 +120,8 @@
             <div class="issuebook">
                 <h2 style="margin:0 8px">Issue a Book</h2>
                 <form action="libbooks.php" method="post">
-                    <input type="text" name="bookid" style="width:200px;" placeholder="Enter Book ID"><br>
-                    <input type="text" name="userid" style="width:200px;" placeholder="Enter User ID"><br>
+                    <input type="text" name="bookid" style="width:200px;" placeholder="Enter Book ID" required><br>
+                    <input type="text" name="userid" style="width:200px;" placeholder="Enter User ID" required><br>
                     <input type="submit" value="Issue" name="issuebook">
                     <?php
                         if (isset($_POST['issuebook'])){
