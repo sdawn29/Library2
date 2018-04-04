@@ -24,18 +24,21 @@
         $aduser_result = mysqli_query($conn,$sql);
     }
 
-    if (isset($_POST['deletebook'])){
-        $q1 = "DELETE FROM bookmaster WHERE book_id=?";
+    if (isset($_POST['removeuser'])){
+        $q1 = "DELETE FROM user_master WHERE User_ID=?";
         $sql = $q1;
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("d", $bookid);
+        $stmt->bind_param("s", $userid);
         $stmt->execute();
         mysqli_close($conn);
         
     }
 
-    if (isset($_POST['issuebook'])){
-        $sql = "INSERT INTO book_issue_details (book_issue_date, book_due_date, book_id, user_id) VALUES(CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY), '$bookid', '$userid')";
+    if (isset($_POST['viewuserdet'])){
+        $sql = "SELECT * FROM book_issue_details WHERE user_id = '$userid'";
+        $res = mysqli_query($conn,$sql);
+        $result = $res->fetch_all(MYSQLI_ASSOC);
+        mysqli_close($conn);
         // mysqli_query($conn,$sql);
     }
 
@@ -63,7 +66,6 @@
                     <li style="float:left; font-weight:600;" class="brand" ><a href="#">Online Library Management System Librarian Portal</a></li>
                     <li style="float:right;" class="brand"><a href="logout.php" class="session" style="color:#f44336">Sign Out</a></li>
                     <li style="float:right;" class="brand"><a href="#" class="session" style="color:#B2FF59"><?php echo $_SESSION['username'] ?></a></li>
-                    
                 </ul>
             </div>
         </div>
@@ -129,6 +131,41 @@
                         }
                     ?>
                 </form>
+            </div>
+
+
+            <div class="issuebook">
+                <h2 style="margin:0 8px">View About a Student</h2>
+                <form action="libstudent.php" method="post">
+                    <input type="text" name="userid" style="width:200px;" placeholder="Enter Registration Number"><br>
+                    <input type="submit" value="View" name="viewuserdet">
+                </form>
+                <?php
+                    if (isset($_POST['viewuserdet'])) {
+                ?>
+                <table class="bookstable">
+                    <tr>
+                        <th>Register No.</th>
+                        <th>Book Name</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                    </tr>
+                <?php
+                    foreach ($result as $user) {
+                ?>
+                    <tr>
+                        <td><?= $user['user_id'] ?></td>
+                        <td><?= $user['book_id'] ?></td>
+                        <td><?= $user['book_issue_date'] ?></td>
+                        <td><?= $user['book_due_date'] ?></td>
+                    </tr>
+                <?php
+                    }
+                ?>    
+                </table>
+                <?php
+                    }
+                ?>
             </div>
             
             <div class="content" style="margin-top:10px;">

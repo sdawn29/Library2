@@ -28,12 +28,12 @@
   }
 
   if(!empty($user) && !empty($pass)) {
-    $sql = "SELECT * FROM  librarian WHERE username = '$user' AND password = '$pass'";
+    $sql = "SELECT * FROM  user_master WHERE User_name = '$user' AND User_PWD = '$pass'";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     if($count == 1) {
       $_SESSION['username'] = $user;
-      header("Location: http://localhost/library2/modules/librarian/librarianindex.php", true, 301);
+      header("Location: http://localhost/library2/modules/student/studindex.php", true, 301);
     } else {
       $loginError = "Username Or Password Doesn`t Match.";
     }
@@ -57,14 +57,14 @@
             <div class="navbar">
                 <ul>
                     <li style="float:left; font-weight:600;" class="brand" ><a href="http://localhost/library2/index.html">Online Library Management System</a></li>
-                    <li style="float:right;" class="brand"><a href="librarian.html">Librarian Login Portal</a></li>
+                    <li style="float:right;" class="brand"><a href="librarian.html">Student Login Portal</a></li>
                 </ul>
             </div>
         </div>
     </div>
         <div class="login">
-            <h1>Librarian Portal Login</h1>
-            <form action="liblogin.php" method="post">
+            <h1>Student Portal Login</h1>
+            <form action="userlogin.php" method="post">
                 <!-- <label for="user">Username</label><br> -->
                 <input class="inputstyle" type="text" name="user" placeholder="Enter Username"><br>
                 <?php

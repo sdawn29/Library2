@@ -34,7 +34,7 @@
     $count = mysqli_num_rows($result);
     if($count == 1) {
       $_SESSION['username'] = $user;
-      header("Location: http://localhost/library2/modules/login_success.php", true, 301);
+      header("Location: http://localhost/library2/modules/student/studindex.php", true, 301);
     } else {
       $loginError = "Username Or Password Doesn`t Match.";
     }

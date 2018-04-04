@@ -133,44 +133,45 @@
                         }
                     ?>
                 </form>
-        </div>
-        <div class="content" style="margin-top:10px;">
-            <h2 style="text-align:center;">View Books</h2>
-            <form action="libbooks.php" style="text-align:center;" method="post">
-                <input type="submit" name="viewbooks" value="View Books">
-            </form>
-            <?php
-                if (isset($_POST['viewbooks'])) {
-            ?>
-            <table class="bookstable">
-                <tr>
-                    <th>Book ID</th>
-                    <th>Edition</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Publisher</th>
-                    <th>Price</th>
-                    <th>Book Type</th>
-                </tr>
-            <?php
-                foreach ($result as $book) {
-            ?>
-                <tr>
-                    <td><?= $book['book_id'] ?></td>
-                    <td><?= $book['edition'] ?></td>
-                    <td><?= $book['book_title'] ?></td>
-                    <td><?= $book['author1'] ?></td>
-                    <td><?= $book['publisher'] ?></td>
-                    <td><?= $book['price'] ?></td>
-                    <td><?= $book['book_type'] ?></td>
-                </tr>
-            <?php
-                }
-            ?>    
-            </table>
-            <?php
-                }
-            ?>
+            </div>
+            <div class="content" style="margin-top:10px;">
+                <h2 style="text-align:center;">View Books</h2>
+                <form action="libbooks.php" style="text-align:center;" method="post">
+                    <input type="submit" name="viewbooks" value="View Books">
+                </form>
+                <?php
+                    if (isset($_POST['viewbooks'])) {
+                ?>
+                <table class="bookstable">
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Edition</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Publisher</th>
+                        <th>Price</th>
+                        <th>Book Type</th>
+                    </tr>
+                <?php
+                    foreach ($result as $book) {
+                ?>
+                    <tr>
+                        <td><?= $book['book_id'] ?></td>
+                        <td><?= $book['edition'] ?></td>
+                        <td><?= $book['book_title'] ?></td>
+                        <td><?= $book['author1'] ?></td>
+                        <td><?= $book['publisher'] ?></td>
+                        <td><?= $book['price'] ?></td>
+                        <td><?= $book['book_type'] ?></td>
+                    </tr>
+                <?php
+                    }
+                ?>    
+                </table>
+                <?php
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </body>
