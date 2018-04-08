@@ -59,6 +59,15 @@
     <title>Online Library Management Librarian Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/librarianStyle.css" />
+    <script>
+        function validateForm() {
+            var x = document.forms["myform"]["bookid"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -102,8 +111,8 @@
             </div>
             <div class="deletebook">
                 <h2 style="margin:0 8px">Delete A Book</h2>
-                <form action="libbooks.php" method="post">
-                    <input type="text" name="bookid" style="width:200px;" placeholder="Enter Book ID" autocomplete="off" required><br>
+                <form action="libbooks.php" method="post" name="myform" onsubmit="return validateForm()">
+                    <input type="text" name="bookid" style="width:200px;" placeholder="Enter Book ID" autocomplete="off" ><br>
                     <input type="submit" value="Delete" class="delbutton" name="deletebook">
                     <?php
                         if (isset($_POST['deletebook'])){ 
